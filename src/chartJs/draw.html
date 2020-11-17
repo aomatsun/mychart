@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Draw canvas</title>
+	<script src="Chart.min.js"></script>	
+
+</head>
+<body>
+<!-- <div id="canvas" style="widht: 300px;height: 200px"> -->
+<canvas id="canvas"></canvas>
+
+</div>
+</body>
+<script type="text/javascript">
+  var yourImage = new Image()
+  // yourImage.src ='http://your.site.com/your_image.png';
+  yourImage.src ='favicon.png';
+  var imageData = {
+    labels: ['one', 'two', 'three', 'four'],
+    datasets: [{
+      label: 'Label1',
+      pointRadius: [10, 0, 10, 10],
+      pointHoverRadius: 20,
+      pointHitRadius: 20,
+      // pointStyle: ['rect', yourImage, 'triangle', 'circle'],
+      pointStyle: [yourImage, yourImage, yourImage, yourImage],
+      pointBackgroundColor: "rgba(0,191,255)",
+      data: [1.5, 2.3, 3, 2.5]
+    }]
+  }
+  window.onload = function() {
+    var lineID = document.getElementById('canvas');
+    var lineChart = new Chart(lineID, {
+      type: 'line',
+      data: imageData,
+      options: {}
+    });
+}
+</script>
+</html>
